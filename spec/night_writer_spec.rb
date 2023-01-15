@@ -29,7 +29,7 @@ RSpec.describe NightWriter do
     expect(night_writer.text_to_braile('h')).to eq("00\n..\n0.")
   end
 
-  xit 'write word to braile' do
-    expect(night_writer.text_to_braile('hello')).to eq("00\n..\n0.")
+  it 'write word to braile' do
+    expect(night_writer.text_to_braile('hello')).to eq("000.00000.\n....0.0.0.\n0.0.....0.")
   end
 end
