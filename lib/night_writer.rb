@@ -51,12 +51,13 @@ class NightWriter
   end 
 
   def text_to_braile(message)
-    message = File.open(@read_file)
+    # message = File.open(@read_file)
    
-    text_array = message
+    text_array = message.split('')
     # require 'pry'; binding.pry
     text = text_array.map do |letter|
       @alphabet[letter]
+      # require 'pry'; binding.pry
     end
     text.transpose.map(&:join).join("\n")
     # require 'pry'; binding.pry
