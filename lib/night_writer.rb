@@ -37,14 +37,30 @@ class NightWriter
   end
 
   def read_and_write
-    message = File.open(@read_file, 'r')
+    message = File.read(@read_file)
 
-    text = message.read
+    char_count = message.chars.count
 
-    puts "Created #{@write_file} contains #{text.split('').count} characters"
+    # puts "Created #{@write_file} contains #{text.split('').count} characters"
+    puts "Created #{@write_file} contains #{char_count} characters"
+    
+    translated_text = text_to_braile(message)
     # require 'pry'; binding.pry
-    File.write(@write_file, text)
+    File.write(@write_file, translated_text)
+    # File.write(@write_file, text)
   end 
+
+  def text_to_braile(message)
+    message = File.open(@read_file)
+   
+    text_array = message
+    # require 'pry'; binding.pry
+    text = text_array.map do |letter|
+      @alphabet[letter]
+    end
+    text.transpose.map(&:join).join("\n")
+    # require 'pry'; binding.pry
+  end
 end
 
 
