@@ -24,4 +24,12 @@ RSpec.describe NightWriter do
   it 'has a hash that has letters keys and braille values' do
     expect(night_writer.alphabet.first).to eq(["a", ["0.", "..", ".."]])
   end
+
+  it 'write a letter to braile' do
+    expect(night_writer.text_to_braile('h')).to eq("00\n..\n0.")
+  end
+
+  xit 'write word to braile' do
+    expect(night_writer.text_to_braile('hello')).to eq("00\n..\n0.")
+  end
 end
