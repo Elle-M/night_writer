@@ -52,19 +52,28 @@ class NightWriter
 
   def text_to_braile(message)
     # message = File.open(@read_file)
-   
-    text_array = message.split('')
-    # require 'pry'; binding.pry
-    text = text_array.map do |letter|
+    braille_message = message.chars.filter_map do |letter|
       @alphabet[letter]
-      # require 'pry'; binding.pry
     end
-    text.transpose.map(&:join).join("\n")
+    sliced_array = braille_message.transpose.map do |braille|
+      # braille.join.chars.each_slice(80).map do |slice|
+      #   slice.join
+      braille.join.chars.each_slice(80).map(&:join)
+    
+    end.transpose.join("\n")
+    # require 'pry'; binding.pry
+    # text_array = message.split('')
+    # require 'pry'; binding.pry
+    # text = text_array.map do |letter|
+    #   @alphabet[letter]
+      # require 'pry'; binding.pry
+    # end
+    # braille_message = text.transpose.map(&:join).join("\n")
     # require 'pry'; binding.pry
   end
 end
 
 
-  # night_writer = NightWriter.new
-  # night_writer.read_and_write
+  night_writer = NightWriter.new
+  night_writer.read_and_write
 
