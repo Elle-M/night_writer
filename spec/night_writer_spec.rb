@@ -26,11 +26,11 @@ RSpec.describe NightWriter do
   end
 
   it 'write a letter to braile' do
-    expect(night_writer.text_to_braile('h')).to eq("00\n..\n0.")
+    expect(night_writer.text_to_braile('h')).to eq( "0.\n00\n..")
   end
 
   it 'write word to braile' do
-    expect(night_writer.text_to_braile('hello')).to eq("000.00000.\n....0.0.0.\n0.0.....0.")
+    expect(night_writer.text_to_braile('hello')).to eq("0.0.0.0.0.\n00.00.0..0\n....0.0.0.")
   end
 
   it 'can line break at 80 characters' do
