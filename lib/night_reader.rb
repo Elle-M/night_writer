@@ -57,31 +57,31 @@ class NightReader
   # end
 # require 'pry'; binding.pry
   def braille_to_text(braille_message)
-    braille_message_array = braille_message.split("\n").join.chars
-    # returns single braile character stings in a array
-    braile_arrays = braille_message_array.each_slice(2).to_a
-
-    new_braille_message_array = braile_arrays.map do |braile_array|
-      braile_array.join
-    #returns pairs in array of two
-       
+    braille_message_array = braille_message.split("\n")
+    braille_arrays = braille_message_array.map do |braille_array|
+      braille_array.chars.each_slice(2).map do |char|
+        char
+      end
     end
-    braille_character = new_braille_message_array.each_slice(3).map do |braile_char|
-      braile_char
-      
-      #returns ["00", "0.", "00"]
+    new_braille_message_array = braille_arrays.map do |braille_array|
+      braille_array.map do |string_join|
+        string_join.join
+      end
     end
-    require 'pry'; binding.pry
-      # new_message_array.map do |braille|
-      #   braille if braille == braille_to_letter.keys 
-        
-      # end
-      # require 'pry'; binding.pry
-    
-  
-    
+    # require 'pry'; binding.pry
+    # braille_character = new_braille_message_array.each_slice(3).map do |braille_char|
+    #   braille_char if braille_char == braille_to_letter.keys_any?(braille_char)
+  #  tanspose
+      # braille_char 
   end
+    
+#returns ["00", "0.", "00"]
+   
+    # require 'pry'; binding.pry
+    # braille_character.map do |braille|
+    #     braille if braille == braille_to_letter.keys 
+      # end
 end
 
-night_reader = NightReader.new
-night_reader.read_and_write
+# night_reader = NightReader.new
+# night_reader.read_and_write
