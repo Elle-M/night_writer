@@ -12,9 +12,6 @@ RSpec.describe NightWriter do
   end
 
   it 'has attributes' do
-    #combine with attr_reader
-    # allow(night_writer).to recieve(:read_file).and_return('./message.txt')
-    # allow(night_writer).to recieve(:read_file).and_return('./braille.txt')
     night_writer.read_and_write
 
     expect(night_writer.read_file).to eq('./message.txt')
@@ -25,18 +22,39 @@ RSpec.describe NightWriter do
     expect(night_writer.alphabet.first).to eq(["a", ["0.", "..", ".."]])
   end
 
-  it 'write a letter to braile' do
+  it '#text_to_braile can write a letter to braile' do
     expect(night_writer.text_to_braile('h')).to eq( "0.\n00\n..")
   end
 
-  it 'write word to braile' do
+  it '#text_to_braile can write word to braile' do
     expect(night_writer.text_to_braile('hello')).to eq("0.0.0.0.0.\n00.00.0..0\n....0.0.0.")
   end
 
-  it 'can line break at 80 characters' do
+  it '#text_to_braile can line break at 80 characters' do
     message = 'hello hello hello hello hello hello hello hello hello hello hello hello hello hello'
 
     expect(night_writer.text_to_braile(message).chars.length).to eq(425)
     expect(night_writer.text_to_braile(message).lines.count).to eq(6)
+  end
+
+  it '#text_to_braile does not line break before 80 characters' do
+    eighty_char_count = 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'
+    expected = '0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.
+................................................................................
+................................................................................'
+    #format expected better?
+    expect(night_writer.text_to_braile(eighty_char_count)).to eq(expected)
+  end
+
+  it '#text_to_braile does break after 80 characters' do
+    eighty_two_char_count = 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'
+    expected = '0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.
+................................................................................
+................................................................................
+0.
+..
+..'
+    #format expected better?
+    expect(night_writer.text_to_braile(eighty_two_char_count)).to eq(expected)
   end
 end
