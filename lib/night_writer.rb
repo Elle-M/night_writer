@@ -1,4 +1,4 @@
-require './alphabetable'
+require_relative './alphabetable'
 class NightWriter
   attr_accessor :read_file,
                 :write_file
@@ -51,10 +51,15 @@ class NightWriter
     # File.write(@write_file, text)
   end 
 
+  # def letter_to_braille
+  #   alphabet
+  # end
+
   def text_to_braile(message)
     # message = File.open(@read_file)
     braille_message = message.chars.filter_map do |letter|
       letter_to_braille[letter]
+      # require 'pry'; binding.pry
     end
     sliced_array = braille_message.transpose.map do |braille|
       # braille.join.chars.each_slice(80).map do |slice|
