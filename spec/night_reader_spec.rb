@@ -17,14 +17,19 @@ RSpec.describe NightReader do
     night_reader.read_and_write
 
     expect(night_reader.read_file).to eq('./braille.txt')
-    expect(night_reader.write_file).to eq('./message.txt')
+    expect(night_reader.write_file).to eq('./original_message.txt')
   end
 
-  xit 'has a hash that has braille keys and letter values' do
+  it 'has a hash that has braille keys and letter values' do
     expect(night_reader.braille_to_letter.first).to eq([["0.", "..", ".."], "a"])
   end 
 
-  it "#braile_to_text" do
-    expect(night_reader.braille_to_text('.00..0.0')).to eq("a")
-  end
+  xit "#braile_to_text" do
+    expect(night_reader.braille_to_text('.00..0.0')).to eq('a')
+  end 
+
+  xit "#braile_to_text can take a word" do
+    word = "000.00000.\n....0.0.0.\n0.0.....0."
+    expect(night_reader.braille_to_text(word)).to eq('hello')
+  end  
 end
