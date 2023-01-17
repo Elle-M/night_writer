@@ -30,11 +30,13 @@ class NightReader
         string_join.join
       end
     end
-    braille_to_letter_key = new_braille_message_array.transpose
+    braille_to_letter_key = new_braille_message_array.each_slice(3).flat_map do |slices|
+      slices.transpose
+    end
     translation_braille_to_text = braille_to_letter_key.filter_map do |letter|
       braille_to_letter[letter]
     end.join
-  end 
+  end
 end
 #comment out runner to run rspec
 # night_reader = NightReader.new
