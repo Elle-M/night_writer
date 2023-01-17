@@ -24,12 +24,12 @@ RSpec.describe NightReader do
     expect(night_reader.braille_to_letter.first).to eq([["0.", "..", ".."], "a"])
   end 
 
-  xit "#braile_to_text" do
-    expect(night_reader.braille_to_text('.00..0.0')).to eq('a')
+  it "#braile_to_text" do
+    expect(night_reader.braille_to_text("0.\n00\n..")).to eq('h')
   end 
 
-  xit "#braile_to_text can take a word" do
-    word = "000.00000.\n....0.0.0.\n0.0.....0."
+  it "#braile_to_text can take a word" do
+    word = "0.0.0.0.0.\n00.00.0..0\n....0.0.0."
     expect(night_reader.braille_to_text(word)).to eq('hello')
   end  
 end
