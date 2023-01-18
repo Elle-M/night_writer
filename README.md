@@ -1,6 +1,6 @@
 [Turing School](https://turing.edu/) is an industry leading, online computer programming school, focused solely on helping students launch fulfilling careers in technology.
 
-In week five of Mod 1 the final project assignment a multiday solo project named Futbol. Listed below are our specifications and outcomes of the project. 
+In week five of Mod 1 the final project assignment is a multiday solo project named Futbol. Listed below are our specifications and outcomes of the project. 
 
 ## Learning Goals
 
