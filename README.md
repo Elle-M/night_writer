@@ -11,8 +11,7 @@ In week five of Mod 1 the final project assignment a multiday solo project named
 
 ## About
 
-The idea of Night Writing was first developed for Napoleon’s army so soldiers could communicate silently at night without light. The concept of night writing led to Louis Braille’s development of his Braille tactile writing system.
-
+The idea of Night Writing was first developed for Napoleon’s army so soldiers could communicate silently at night without light. The concept of night writing led to Louis Braille’s development of his Braille tactile writing system. This program allows the user to translate English characters to the Braille-like text equivilent and back to English characters. The message I selected to use was the first line of the poem [Ithaka](https://www.poetryfoundation.org/poems/51296/ithaka-56d22eef917ec) by C. P. Cavafy.
 ## Built With
 
 Ruby 2.7.2 and RSpec 3.12 versions.
