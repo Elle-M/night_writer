@@ -38,7 +38,6 @@ RSpec.describe NightReader do
 ..
 ..'
     expected = 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'
-    #format expected better?
     expect(braille_to_text(eighty_two_char_count)).to eq(expected)
   end
 end

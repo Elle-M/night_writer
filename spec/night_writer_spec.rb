@@ -33,8 +33,8 @@ RSpec.describe NightWriter do
   it '#text_to_braile can line break at 80 characters' do
     message = 'hello hello hello hello hello hello hello hello hello hello hello hello hello hello'
 
-    expect(night_writer.text_to_braile(message).chars.length).to eq(425)
-    expect(night_writer.text_to_braile(message).lines.count).to eq(6)
+    expect(night_writer.text_to_braile(message).chars.length).to eq(506)
+    expect(night_writer.text_to_braile(message).lines.count).to eq(9)
   end
 
   it '#text_to_braile does not line break before 80 characters' do
@@ -42,7 +42,6 @@ RSpec.describe NightWriter do
     expected = '0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.
 ................................................................................
 ................................................................................'
-    #format expected better?
     expect(night_writer.text_to_braile(eighty_char_count)).to eq(expected)
   end
 
@@ -54,7 +53,6 @@ RSpec.describe NightWriter do
 0.
 ..
 ..'
-    #format expected better?
     expect(night_writer.text_to_braile(eighty_two_char_count)).to eq(expected)
   end
 end
