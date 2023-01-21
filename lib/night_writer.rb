@@ -12,7 +12,7 @@ class NightWriter
 
   def read_and_write
     message = File.read(@read_file)
-    char_count = message.gsub(/\s+/, '').length
+    char_count = message.length
     translated_text = text_to_braile(message)
     File.write(@write_file, translated_text)
     puts "Created #{@write_file} contains #{char_count} characters"
