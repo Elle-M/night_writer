@@ -20,6 +20,8 @@ Ruby 2.7.2 and RSpec 3.12 versions.
 
 A key goal of this project is to utilize Test Driven Development, and the SimpleCov gem to determine percentage of test coverage.
 
+<img width="1415" alt="nightridertestcover" src="https://user-images.githubusercontent.com/113124260/214373756-e5ec49a6-80cd-43f2-8723-25b9c5d32ace.png">
+
 ## Author
 
 [Elle Majors](https://github.com/Elle-M)
